@@ -44,8 +44,8 @@ int main() {
         case 1:
             printf("Ingrese cadena\n");
             scanf("%s",cadena);
-            longitudCadena(cadena);
-            printf("Longitud de la cadena: %s\n",cadena);
+            int longitud = longitudCadena(cadena);
+            printf("Longitud de la cadena: %s\n", longitud);
             break;
         case 2:
             break;
