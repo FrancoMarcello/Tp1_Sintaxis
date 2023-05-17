@@ -2,6 +2,18 @@
 // ejecutarlo ./tp1
 #include <stdio.h>
 
+//Funcion calcular y retornar longitud de una cadena (Punto a)
+int longitudCadena(char* cadena){
+    int longitud = 0;
+
+    while (cadena[longitud] != '\0'){
+        longitud++;
+    }
+
+    return longitud;
+}
+
+
 void convertirMayusculas(char* cadena)
 {
     int i = 0;
@@ -30,6 +42,10 @@ int main() {
     while(cod != 0){
         switch (cod) {
         case 1:
+            printf("Ingrese cadena\n");
+            scanf("%s",cadena);
+            longitudCadena(cadena);
+            printf("Longitud de la cadena: %s\n",cadena);
             break;
         case 2:
             break;
