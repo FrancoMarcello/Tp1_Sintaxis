@@ -2,8 +2,23 @@
 // ejecutarlo ./tp1
 #include <stdio.h>
 
+void convertirMayusculas(char* cadena)
+{
+    int i = 0;
+    while(cadena[i]!='\0')
+    {
+        if(cadena[i]>= 97 && cadena[i]<= 122)   //Si es una letra en minuscula
+        {
+            cadena[i] = cadena[i] - 32;         //La convierto (32 es la diferencia entre ASCII de minusculas y mayusculas)
+        }
+        i++;
+    }
+}
+
+
 int main() {
     int cod;
+    char cadena[]="";
     printf("Ingrese la operacion que desea realizar\n");
     printf("1) Calcular y retornar la longitud de una cadena dada \n");
     printf("2) Convertir una cadena de dígitos en su equivalente numérico\n");
@@ -19,6 +34,10 @@ int main() {
         case 2:
             break;
         case 3:
+            printf("Ingrese cadena\n");
+            scanf("%s",cadena);
+            convertirMayusculas(cadena);
+            printf("Cadena generada: %s\n",cadena);
             break;
         case 4:
             break;
