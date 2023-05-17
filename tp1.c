@@ -14,6 +14,9 @@ int longitudCadena(char* cadena){
 }
 
 
+
+
+
 void convertirMayusculas(char* cadena)
 {
     int i = 0;
@@ -27,10 +30,24 @@ void convertirMayusculas(char* cadena)
     }
 }
 
+// d) Eliminar de una cadena dada todas las ocurrencias de un carácter dado. 
+
+void eliminarCaracter (char *cadena, char caracter) {
+     int i, j;
+    for (i = 0, j = 0; cadena[i] != '\0'; i++) {
+        if (cadena[i] != caracter) {
+            cadena[j] = cadena[i];
+            j++;
+        }
+    }
+    cadena[j] = '\0';
+}
+
 
 int main() {
     int cod;
     char cadena[]="";
+    char caracter;
     printf("Ingrese la operacion que desea realizar\n");
     printf("1) Calcular y retornar la longitud de una cadena dada \n");
     printf("2) Convertir una cadena de dígitos en su equivalente numérico\n");
@@ -56,6 +73,12 @@ int main() {
             printf("Cadena generada: %s\n",cadena);
             break;
         case 4:
+        printf("Ingrese cadena\n");
+        scanf("%s",cadena);
+        printf("Ingrese caracter\n");
+        scanf("%s",caracter);
+        eliminarCaracter(cadena, caracter);
+        printf("Cadena resultante: %s\n", cadena);
             break;
         case 5:
             break;
