@@ -13,9 +13,20 @@ int longitudCadena(char* cadena){
     return longitud;
 }
 
-
-
-
+int convertirDigitos(char *cadena) {
+    int equivalente = 0;
+    int i = 0;
+    while (cadena[i] != '\0') {
+            if(cadena[i] <= 57 && cadena[i] >= 48)
+                { // me fijo si es una cadena de digitos numericos y no de otros simbolos
+            equivalente += cadena[i] - 48 ;
+            equivalente *= 10;
+            i++;
+                }
+    }
+    equivalente = equivalente/10;
+    return equivalente;
+}
 
 void convertirMayusculas(char* cadena)
 {
@@ -65,6 +76,9 @@ int main() {
             printf("Longitud de la cadena: %s\n", longitud);
             break;
         case 2:
+            printf("Ingrese cadena\n");
+            scanf("%s", cadena);
+            printf("Equivalente numerico: %i\n", convertirDigitos(cadena));
             break;
         case 3:
             printf("Ingrese cadena\n");
