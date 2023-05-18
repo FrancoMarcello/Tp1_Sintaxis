@@ -54,6 +54,18 @@ void eliminarCaracter (char *cadena, char caracter) {
     cadena[j] = '\0';
 }
 
+void concatenarCadenas (char *cadena1, char *cadena2){
+    int i, j;
+
+    for(i=0; cadena1[i]!='\0'; i++);
+
+    for(j=0; cadena2[j]!='\0'; j++){
+        cadena1[i]=cadena2[j];
+        i++;
+    }
+    cadena1[i]='\0';
+}
+
 void insertarCaracter(char *cadena, char caracter, int posicion) {
     int longitud = 0;
     while (cadena[longitud] != '\0') {
@@ -75,6 +87,7 @@ void insertarCaracter(char *cadena, char caracter, int posicion) {
 int main() {
     int cod;
     char cadena[]="";
+    char cadena1[20]="", cadena2[20]="";
     char caracter;
     int posicion;
     printf("Ingrese la operacion que desea realizar (con 0 corta)\n");
@@ -113,6 +126,12 @@ int main() {
         printf("Cadena resultante: %s\n", cadena);
             break;
         case 5:
+            printf("Ingresar primer cadena: " );
+            scanf("%s", cadena1);
+            printf("\nIngresar segunda cadena: " );
+            scanf("%s", cadena2);
+            concatenarCadenas(cadena1, cadena2);
+            printf("%s\n", cadena1);
             break;
         case 6:
         printf("Ingrese cadena\n");
