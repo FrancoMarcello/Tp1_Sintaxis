@@ -54,18 +54,36 @@ void eliminarCaracter (char *cadena, char caracter) {
     cadena[j] = '\0';
 }
 
+void insertarCaracter(char *cadena, char caracter, int posicion) {
+    int longitud = 0;
+    while (cadena[longitud] != '\0') {
+        longitud++;
+    }
+
+    if (posicion < 0 || posicion > longitud) {
+        printf("Posicion invalida\n");
+        return;
+    }
+    // Desplazo los caracteres hacia la derecha para dejarle un lugar al mi nuevo caracter
+    for (int i = longitud; i >= posicion; i--) {
+        cadena[i + 1] = cadena[i];
+    }
+
+    cadena[posicion] = caracter;
+}
 
 int main() {
     int cod;
     char cadena[]="";
     char caracter;
-    printf("Ingrese la operacion que desea realizar\n");
+    int posicion;
+    printf("Ingrese la operacion que desea realizar (con 0 corta)\n");
     printf("1) Calcular y retornar la longitud de una cadena dada \n");
-    printf("2) Convertir una cadena de dígitos en su equivalente numérico\n");
-    printf("3) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula\n");
-    printf("4) Eliminar de una cadena dada todas las ocurrencias de un carácter dado\n");
-    printf("5) Concatenar al final de la primera cadena dada una segunda cadena también dada\n");
-    printf("6) Modificar la cadena dada con la inserción de un carácter dado en una posición determinada\n");
+    printf("2) Convertir una cadena de digitos en su equivalente numerico\n");
+    printf("3) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayuscula\n");
+    printf("4) Eliminar de una cadena dada todas las ocurrencias de un caracter dado\n");
+    printf("5) Concatenar al final de la primera cadena dada una segunda cadena tambien dada\n");
+    printf("6) Modificar la cadena dada con la insercion de un caracter dado en una posicion determinada\n");
     scanf("%d", &cod);
     while(cod != 0){
         switch (cod) {
@@ -97,18 +115,26 @@ int main() {
         case 5:
             break;
         case 6:
+        printf("Ingrese cadena\n");
+        scanf("%s", cadena);
+        printf("Ingrese caracter\n");
+        scanf(" %c", &caracter);
+        printf("Ingrese la posicion donde desea agregar el caracter\n");
+        scanf("%d", &posicion);
+        insertarCaracter(cadena, caracter, posicion);
+        printf("Cadena resultante: %s\n", cadena);
             break;
         default:
             printf("Código inválido.\n");
             break;
     }
-    printf("Ingrese la operacion que desea realizar (con 0 se corta)\n");
+    printf("Ingrese la operacion que desea realizar (con 0 corta)\n");
     printf("1) Calcular y retornar la longitud de una cadena dada \n");
-    printf("2) Convertir una cadena de dígitos en su equivalente numérico\n");
-    printf("3) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayúscula\n");
-    printf("4) Eliminar de una cadena dada todas las ocurrencias de un carácter dado\n");
-    printf("5) Concatenar al final de la primera cadena dada una segunda cadena también dada\n");
-    printf("6) Modificar la cadena dada con la inserción de un carácter dado en una posición determinada\n");
+    printf("2) Convertir una cadena de digitos en su equivalente numerico\n");
+    printf("3) Convertir una cadena de caracteres a la misma cadena con todos sus caracteres en mayuscula\n");
+    printf("4) Eliminar de una cadena dada todas las ocurrencias de un caracter dado\n");
+    printf("5) Concatenar al final de la primera cadena dada una segunda cadena tambien dada\n");
+    printf("6) Modificar la cadena dada con la insercion de un caracter dado en una posicion determinada\n");
     scanf("%d", &cod);
     }
 
